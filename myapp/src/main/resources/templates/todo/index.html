@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Todos</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body class="container">
+<nav class="navbar navbar-dark bg-sucess">
+    <a href="/">HOME</a><br/>
+    <a href="/?isActive=true">ACTIVE TODO</a><br/>
+    <a href="/add">ADD TODO</a><br/>
+    <a href="/assignee">LIST OF ASSIGNEES</a><br/>
+</nav>
+<form th:action="@{/todo/search}" , th:method="post" th:object="${item}">
+    <label>Search todo
+        <input name="name" type="text" placeholder="name or description" th:field="*{name}">
+    </label>
+    <button>Search</button>
+</form>
+
+
+<h1 class="text-center">List of Todos</h1>
+<table class="table table-striped">
+    <thead>
+    <td>Id</td>
+   <!-- <td>Assignee</td>-->
+    <td>Name</td>
+    <td>Date</td>
+    <td>Done?</td>
+    <td>Urgent?</td>
+    </thead>
+    <tbody>
+    <tr th:each="item: ${items}">
+        <td th:text="${item.getId()}"></td>
+       <!-- <td th:text="${item.getAssignee().getName()}"></td>-->
+        <td>
+            <a th:href="@{|/${item.getId()}/item|}" th:method="get" th:text="${item.getName()}"></a>
+        </td>
+        <td th:text="${item.getTimestamp()}"></td>
+        <td th:text="${item.isDone()}"></td>
+        <td th:text="${item.isUrgent()}"></td>
+        <td>
+            <a th:href="@{|/${item.getId()}/delete|}" th:method="get">delete</a>
+        </td>
+        <td>
+            <a th:href="@{|/${item.getId()}/edit|}" th:method="get">edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+</html>
