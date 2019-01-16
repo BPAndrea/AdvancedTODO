@@ -23,7 +23,12 @@ public class Todo {
   public Todo() {
   }
 
+  public Todo(String name) {
+    this.name = name;
+  }
+
   public Todo(String name, boolean isDone) {
+    this();
     this.name = name;
     this.isDone = isDone;
   }
