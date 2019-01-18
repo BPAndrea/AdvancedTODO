@@ -3,8 +3,10 @@ package com.greenfox.myprogram.service;
 import com.greenfox.myprogram.model.Todo;
 import com.greenfox.myprogram.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.rmi.NoSuchObjectException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +18,9 @@ public class TodoServiceImpl implements TodoService {
   @Autowired
   public TodoServiceImpl(TodoRepository todoRepository) {
     this.todoRepository = todoRepository;
+  }
+
+  public TodoServiceImpl() {
   }
 
   @Override
@@ -45,7 +50,14 @@ public class TodoServiceImpl implements TodoService {
 
   @Override
   public Todo findById(Long id) {
-    return todoRepository.findAllById(id);
+ /*   Todo toreturn = todoRepository.findAllById(id);
+  if (toreturn == null)
+      throw new NoSuchObjectException();*/
+
+   return todoRepository.findAllById(id);
+/*    Todo sent = todoRepository.findAllById(id);
+    sent.setDescription(null);
+    return sent;*/
   }
 
   @Override

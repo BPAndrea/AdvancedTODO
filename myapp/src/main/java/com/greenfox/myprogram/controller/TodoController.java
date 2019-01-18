@@ -12,17 +12,12 @@ import java.util.List;
 @Controller
 public class TodoController {
   private TodoService todoService;
-  // private AssigneeService assigneeService;
 
   @Autowired
   public TodoController(TodoService todoService) {
     this.todoService = todoService;
   }
-/*  @Autowired
-  public TodoController(ItemService itemService, AssigneeService assigneeService) {
-    this.itemService = itemService;
-    this.assigneeService = assigneeService;
-  }*/
+
 
   @GetMapping({"/", "/list"})
   public String list(@RequestParam(value = "isActive", required = false) boolean isActive, Model model) {

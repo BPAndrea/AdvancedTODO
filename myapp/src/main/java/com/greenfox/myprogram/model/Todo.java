@@ -17,9 +17,6 @@ public class Todo {
   private boolean isDone = false;
   private boolean isUrgent = false;
 
- // @ManyToOne(fetch = FetchType.LAZY)
- // private Assignee assignee = new Assignee("Nobody", "no email", (long) 1);
-
   public Todo() {
   }
 
@@ -32,23 +29,6 @@ public class Todo {
     this.name = name;
     this.isDone = isDone;
   }
-
-
-/*  public Todo(String name, boolean isDone, boolean isUrgent, Assignee assignee) {
-    this();
-    this.name = name;
-    this.isDone = isDone;
-    this.isUrgent = isUrgent;
-    this.assignee = assignee;
-  }*/
-
- /* public Assignee getAssignee() {
-    return assignee;
-  }
-
- public void setAssignee(Assignee assignee) {
-    this.assignee = assignee;
-  }*/
 
   public String getDescription() {
     return description;

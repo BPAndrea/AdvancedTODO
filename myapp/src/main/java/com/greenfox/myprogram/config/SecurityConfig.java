@@ -1,4 +1,5 @@
 /*
+
 package com.greenfox.myprogram.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // with a users table
+
 */
 /*    @Autowired
     public void configureMySql(AuthenticationManagerBuilder auth, DataSource dataSource) throws Exception {
@@ -39,5 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
           .authoritiesByUsernameQuery("select username, role from users where username=?");
     }*//*
 
+
   }
 */
+

@@ -15,16 +15,16 @@ import java.io.IOException;
 public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessingFilter {
 
   public JwtAuthenticationTokenFilter() {
-    super("/rest/**");
+    super("/api");
   }
 
   @Override
   public Authentication attemptAuthentication(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws AuthenticationException, IOException, ServletException {
 
-    String header = httpServletRequest.getHeader("Authorisation");
+    String header = httpServletRequest.getHeader("Authentication");
 
 
-    if (header == null || !header.startsWith("Token ")) {
+    if (header == null || !header.startsWith("Bearer ")) {
       throw new RuntimeException("JWT Token is missing");
     }
 
