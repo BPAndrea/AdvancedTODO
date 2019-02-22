@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: ch.qos.logback:logback-classic:1.2.3">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/.gradle" />
+    </SOURCES>
+  </library>
+</component>

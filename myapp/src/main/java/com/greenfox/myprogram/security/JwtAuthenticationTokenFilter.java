@@ -28,7 +28,7 @@ public class JwtAuthenticationTokenFilter extends AbstractAuthenticationProcessi
       throw new RuntimeException("JWT Token is missing");
     }
 
-    String authenticationToken = header.substring(6);
+    String authenticationToken = header.substring(7);
 
     JwtAuthenticationToken token = new JwtAuthenticationToken(authenticationToken);
     return getAuthenticationManager().authenticate(token);

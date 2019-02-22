@@ -30,6 +30,13 @@ public class Todo {
     this.isDone = isDone;
   }
 
+  public Todo(String name, boolean isDone, boolean isUrgent) {
+    this();
+    this.name = name;
+    this.isDone = isDone;
+    this.isUrgent = isUrgent;
+  }
+
   public String getDescription() {
     return description;
   }
