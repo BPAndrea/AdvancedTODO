@@ -28,7 +28,13 @@ public class JwtGenerator {
         claims.put("role", jwtUser.getRole());
 
         return Jwts.builder()
-                // .setExpiration(expirationTime)
+                .setClaims(claims)
+                .signWith(SignatureAlgorithm.HS512, "youtube")
+                .compact();
+    }
+}
+/*
+               // .setExpiration(expirationTime)
                 .setClaims(claims)
                 .setIssuedAt(Date.from(currentTime.atZone(ZoneId.systemDefault()).toInstant()))
                 .setExpiration(Date.from(currentTime
@@ -36,5 +42,4 @@ public class JwtGenerator {
                         .atZone(ZoneId.systemDefault()).toInstant()))
                 .signWith(SignatureAlgorithm.HS512, "youtube")
                 .compact();
-    }
-}
+ */
